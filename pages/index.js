@@ -4,13 +4,13 @@ import ClientOnly from '../components/ClientOnly'
 
 export default function ClientSide(){
   return(
-    <div className="container" >
+    <div className="container ">
       <Head>
         <title>
           Next App Test Tech
         </title>
       </Head>
-      <main className="main">
+      <main className="main w-screen h-screen">
         <ClientOnly>
           <Anime />
         </ClientOnly>

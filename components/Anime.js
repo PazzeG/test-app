@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 
+
 // query to retrieve 3 anime
 
 const QUERY = gql`
@@ -57,16 +58,24 @@ export default function Anime(){
 
       return(
         <div className="mainGrid">
-            <h1>Hello Anime</h1>
+            <h1 className="text-3xl font-bold place-content-center flex flex-row">Hello Anime</h1>
+
+            <div className="cardContainer place-content-evenly flex mt-16 " >
             {medias.map((value) =>{
                 return (
-                    <div key={value.id} className="card">
-                        <img src={value.coverImage.medium} alt={value.title.userPreferred + " _cover"} />
-                        <h2>{value.title.userPreferred}</h2>
+                    <section className=" bg-gray-200 rounded-md shadow-md shadow-slate-200 p-2 w-72 flex items-center flex-col" >
+                    <div className="imageContainer ">
+                        <img src={value.coverImage.medium} alt={value.title.userPreferred + " _cover"}  className="rounded-md shadow-sm shadow-slate-300"/>
+                        </div>
+                        <h2 className="animeTitle font-semibold mt-2">{value.title.userPreferred}</h2>
+                        </section>
+                        )
+                    })}
                     </div>
-                )
-            })}
-            <input type="submit" value="Save Animes" onClick={ async () => {
+
+             <div className='inputContainer flex justify-center mt-24'>
+            <input type="submit" value="Save Animes" className="py-1 bg-indigo-100 w-40 rounded-full border-0 text-lg font-sans font-semibold text-indigo-800 hover:bg-indigo-200 cursor-pointer" 
+                 onClick={ async () => {
                 try {
                     medias.map( async (value) =>{
                         const anime ={
@@ -78,7 +87,10 @@ export default function Anime(){
                 } catch(err){
                     console.error(err);
                 }
-            }} />
-        </div>
-      )
+            }} /> </div>
+            </div>
+            )
 }
+
+
+
