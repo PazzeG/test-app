@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 
 """
 Fonction permettant de récupérer l'URL SensCritique d'un animé
-⚠️ Ne pas toucher à cette fonction, elle vous sera utile.
 """
 def get_sc_anime_url(anime_name):
     url = f'https://www.senscritique.com/sc2/search/autocomplete.json?query={anime_name}'
